@@ -1,15 +1,4 @@
 Mongotree::Application.routes.draw do
-  resources :states
-
-
-  resources :users
-
-
-  resources :roles
-
-
-  resources :workflows
-
 
   resources :nodes
 
