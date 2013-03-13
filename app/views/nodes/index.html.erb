@@ -1,0 +1,32 @@
+<h1>These top nodes were easy to find with Node.roots</h1>
+<ul id="menu">
+  <% Node.roots.each do |root_node| %>
+    <li><%= link_to root_node.name, root_node %></li>
+  <% end %>
+</ul>
+
+</br>
+</br>
+</br>
+
+<h1>These are all the nodes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @nodes.each do |node| %>
+  <tr>
+    <td><%= node.name %></td>
+    <td><%= link_to 'Show', node %></td>
+    <td><%= link_to 'Edit', edit_node_path(node) %></td>
+    <td><%= link_to 'Destroy', node, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+</br>
+<%= link_to 'New Node', new_node_path %>

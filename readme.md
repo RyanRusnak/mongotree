@@ -1,0 +1,1 @@
+Mongoid ancestry tree structure in rails
