@@ -1,4 +1,16 @@
 class UsersController < ApplicationController
+  
+  # before_filter :authenticate_user!, :except => [:new, :create, :destroy, :index]
+  # before_filter :user_owns_data, :only => :show
+  # 
+  # def user_owns_data
+  #   @user = User.find(params[:id])
+  #   if @user.id != current_user.id
+  #     redirect_to 'users#index'
+  #   end
+  # end
+  
+  
   # GET /users
   # GET /users.json
   def index
@@ -19,6 +31,7 @@ class UsersController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @user }
     end
+
   end
 
   # GET /users/new
@@ -41,16 +54,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
+    if @user.save
+        redirect_to root_url, :notice => "Signed up!"
       else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render "new"
       end
-    end
   end
 
   # PUT /users/1

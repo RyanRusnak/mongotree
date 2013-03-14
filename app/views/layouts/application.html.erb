@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SF86</title>
+  <title>MAX Collect</title>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
@@ -24,14 +24,19 @@
         <div class="nav-collapse">
           <ul class="nav">
 			<li><%= link_to "Home" %></li>
-			<li><%= link_to "Find" %></li>
-			<li><%= link_to "Help" %></li>
-			<li><%= link_to "Feedback" %></li>
-
+            <li><%= link_to "Find" %></li>
+            <li><%= link_to "Help"%></li>
+			<li><%= link_to "Feedback"%></li>
           </ul>
 			<p class="navbar-text pull-right">
 				<a href="#" class="navbar-link">
-			
+			<% if current_user %>
+			    Logged in as <%= current_user.email %>.
+			    <%= link_to "Log out", log_out_path %>
+			  <% else %>
+			    <%= link_to "Sign up", sign_up_path %> or
+			    <%= link_to "log in", log_in_path %>
+			  <% end %>
 				</a>
 			</p>
         </div>
@@ -40,16 +45,23 @@
   </div>
 
   <div class="container">
-
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <a class="close" data-dismiss="alert">×</a>
+      <%= msg %>
+    </div>
+  <% end %>
+<% if current_user %>
 <div class="row">
       <div class="span3 bs-docs-sidebar">
         <ul class="nav nav-tabs nav-stacked">
-          <li><a href="#addresses"><i class="icon-chevron-right"></i> Sample</a></li>
-          <li><a href="#worked"><i class="icon-chevron-right"></i> Menu</a></li>
-          <li><a href="#images"><i class="icon-chevron-right"></i> Tree should</a></li>
-          <li><a href="#icons"><i class="icon-chevron-right"></i> Go here</a></li>
+          <li><a href="#addresses"><i class="icon-chevron-right"></i> First Item</a></li>
+          <li><a href="#worked"><i class="icon-chevron-right"></i> Second Item</a></li>
+          <li><a href="#images"><i class="icon-chevron-right"></i> Third Item</a></li>
+          <li><a href="#icons"><i class="icon-chevron-right"></i> Fourth Item</a></li>
         </ul>
       </div>
+<% end %>
       <div class="span9">
     <div class="row">
       <div class="span9"><%= yield %></div>

@@ -1,15 +1,76 @@
 <p id="notice"><%= notice %></p>
+	
+<%= simple_form_for([@user, @form] ) do |f| %>
+	<h4>Full Name</h4>
+	<div class='row-fluid'>
+		<div class="span3"><%= f.input :last_name, placeholder: 'Your Last name', label: false %>						</div>
+		<div class="span3"><%= f.input :first_name, placeholder: 'Your first name', label: false%>						</div>
+		<div class="span3"><%= f.input :middle_name, placeholder: 'Your Middle name', label: false %> 					</div>
+		<div class="span3"><%= f.input :junior_or_other, placeholder: 'Junior, II, etc', label: false, :input_html => {:style => 'width: 80px'} %> 	</div> 
+	<div>
+	<div class='row-fluid'>
+		<h4>Birth Information</h4>
+	</div>	
+	<div class='row-fluid'>
+		<div class="span3"><%= f.input :date_of_birth, placeholder: 'Date of Birth', label: false %>					</div>
+		<div class="span3"><%= f.input :birthplace_city, placeholder: 'Birthplace City', label: false%>					</div>
+		<div class="span3"><%= f.input :birthplace_county, placeholder: 'Birthplace County', label: false %> 			</div>
+	</div>
+	<div class='row-fluid'>
+		<div class="span3"><%= select_tag :birthplace_state, options_for_select(us_states) %>							</div> 
+		<div class="span3"><%= f.input :birthplace_country, placeholder: 'Birthplace City', label: false %> 			</div>
+		<div class="span3"><Label>Country</label></div>
+	</div> 
+	<div class='row-fluid'>
+		<h4>Mothers Maiden Name</h4>
+	</div>	
+	<div class='row-fluid'>
+		<div class="span3"><%= f.input :mothers_maiden_last_name, placeholder: 'Last Name', label: false %>				</div>
+		<div class="span3"><%= f.input :mothers_maiden_first_name, placeholder: 'First Name', label: false%>			</div>
+		<div class="span3"><%= f.input :mothers_maiden_middle_name, placeholder: 'Middle Name', label: false %> 		</div>
+	</div>
+	<div class='row-fluid'>
+		<h4>Your Identifying Information</h4>
+	</div>	
+	<div class='row-fluid'>
+		<div class="span1"><%= f.input :height, placeholder: 'Height', label: false,:input_html => {:style => 'width: 50px'} %>				</div>
+		<div class="span1"><%= f.input :weight, placeholder: 'Weight', label: false,:input_html => {:style => 'width: 50px'}%>			</div>
+		<div class="span3"><%= f.input :hair_color, placeholder: 'Hair Color', label: false %> 		</div>
+		<div class="span3"><%= f.input :eye_color, placeholder: 'Eye Color', label: false %> 		</div>
+	</div>
+	
+	<div class='row-fluid'>
+		<h4>Contact Information</h4>
+	</div>
+	<div class='row-fluid'>
+		<h5>Home</h5>
+	</div>
+	<div class='row-fluid'>
+	<div class="span3"><%= f.input :home_email_address, placeholder: 'Home email address', label: false %>				</div>
+	<div class="span3"><%= f.input :home_phone, placeholder: 'Home phone number', label: false%>			</div>
+	<div class="span1"><%= f.check_box :your_home_phone_day_checkbox %><label>Day</label></div>
+	<div class="span1"><%= f.check_box :your_home_phone_evening_checkbox %><label>Evening</label></div>
+	</div>
+	<div class='row-fluid'>
+		<h5>Work</h5>
+	</div>
+	<div class='row-fluid'>
+	<div class="span3"><%= f.input :work_email_address, placeholder: 'Home email address', label: false %>				</div>
+	<div class="span3"><%= f.input :work_phone, placeholder: 'Home phone number', label: false%>			</div>
+	<div class="span1"><%= f.check_box :your_work_phone_day_checkbox %><label>Day</label></div>
+	<div class="span1"><%= f.check_box :your_work_phone_evening_checkbox %><label>Evening</label></div>
+	</div>
+	<div class='row-fluid'>
+		<h5>Mobile</h5>
+	</div>
+	<div class='row-fluid'>
+	<div class="span3"><%= f.input :mobile_phone, placeholder: 'Home phone number', label: false%>			</div>
+	<div class="span1"><%= f.check_box :your_mobile_phone_day_checkbox %><label>Day</label></div>
+	<div class="span1"><%= f.check_box :your_mobile_phone_evening_checkbox %><label>Evening</label></div>
+	</div>
+	<div class='row-fluid'>
+		<div class="span1"><%= f.submit "Continue" %></div>
+	</div>
+<% end %>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
 
-<p>
-  <b>Role:</b>
-  <%= @user.role_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

@@ -1,7 +1,19 @@
 Mongotree::Application.routes.draw do
 
   resources :nodes
+  resources :sessions
+  resources :users 
+  
+  #=================================authentication
+  get "sessions/new"
+  match "/users/:id/citizenships" => "citizenships#show"
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "sign_up" => "users#new", :as => "sign_up"
+  
+  root :to => "nodes#index"
 
+  #==============================ancestry
   match 'nodes/:id/new_child' => 'nodes#new_child_node'
   # The priority is based upon order of creation:
   # first created -> highest priority.
