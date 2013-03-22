@@ -4,9 +4,15 @@ class NodesController < ApplicationController
   def index
     @nodes = Node.all
     
+    @node_names = []
+    
+    @nodes.each do |n|
+      @node_names << n.name
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @nodes }
+      format.json { render json: @node_names }
     end
   end
 

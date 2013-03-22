@@ -1,0 +1,77 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+@media (min-width:980px){
+body { padding-top: 60px; }
+}
+
+.navbar-inner {
+	background: rgb(0,121,242); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(0,121,242,1) 0%, rgba(9,110,211,1) 44%, rgba(16,97,178,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,121,242,1)), color-stop(44%,rgba(9,110,211,1)), color-stop(100%,rgba(16,97,178,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,121,242,1) 0%,rgba(9,110,211,1) 44%,rgba(16,97,178,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,121,242,1) 0%,rgba(9,110,211,1) 44%,rgba(16,97,178,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,121,242,1) 0%,rgba(9,110,211,1) 44%,rgba(16,97,178,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(0,121,242,1) 0%,rgba(9,110,211,1) 44%,rgba(16,97,178,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079f2', endColorstr='#1061b2',GradientType=0 ); /* IE6-9 */
+
+}
+.navbar .nav>li>a {
+	color: #E3E7FF;
+	text-shadow:none;
+}
+
+
+.navbar .brand {
+	color:#E3E7FF;
+	text-shadow:none;
+}
+.navbar-link {
+	color:#E3E7FF;
+	text-shadow:none;
+}
+.navbar-link:hover {
+	color:white;
+	text-decoration:none;
+}
+
+.navbar .nav>li>a:focus, .navbar .nav>li>a:hover{
+	color:white;
+	text-shadow:red;
+}
+
+.auth-header{
+	color:#E3E7FF;
+}
+
+.auth-header:hover{
+	color:white;
+	text-decoration:none;
+}
+
+.item-title{
+	border-bottom: 1px solid #aaa;
+}
+
+.unstyled-list{
+	list-style:none;
+}
+
+#toggle-nav{
+	position:relative;
+	right:350px;
+	top:27px;
+}
+
+a>.jstree-icon
+{
+    background-image: url("/glyphicons/png/glyphicons_144_folder_open.png")!important;
+	background-size:95%;
+    background-position: 0!important;
+	height:5px;
+}
+
